@@ -116,6 +116,7 @@ class Page extends Model
         if ($context === 'update' && isset($fields->person)) {
             if ($fields->person->value) {
                 $fields->description->value = 'Modified VAlue';
+                $fields->description->comment ="Person ID: ".$fields->person->value;
             }
             else {
                 $fields->description->value = null;
