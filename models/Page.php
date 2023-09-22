@@ -113,6 +113,15 @@ class Page extends Model
             }
         }
 
+        if ($context === 'update' && isset($fields->person)) {
+            if ($fields->person->value) {
+                $fields->description->value = 'Modified VAlue';
+            }
+            else {
+                $fields->description->value = null;
+            }
+        } 
+
         // Prepopulate people repeater
         if ($context === 'refresh' && $fields->_prepopulate_people !== null) {
             if ($fields->_prepopulate_people->value) {
